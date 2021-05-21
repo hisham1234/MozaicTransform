@@ -1,0 +1,15 @@
+{
+  "generatedBy": "Microsoft.NET.Sdk.Functions-3.0.3",
+  "configurationSource": "attributes",
+  "bindings": [
+    {
+      "type": "blobTrigger",
+      "connection": "",
+      "path": "samples-workitems/{name}",
+      "name": "myBlob"
+    }
+  ],
+  "disabled": false,
+  "scriptFile": "../bin/MozaicTransform.dll",
+  "entryPoint": "MozaicTransform.MozaicTransform.Run"
+}

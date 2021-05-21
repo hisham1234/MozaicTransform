@@ -1,0 +1,25 @@
+﻿<Properties StartupConfiguration="{2B12E2A3-AA4A-4801-B74A-B51C3AFFF61B}|Default">
+  <MonoDevelop.Ide.Workbench>
+    <Files>
+      <File FileName="../../../.nuget/packages/microsoft.net.sdk.functions/3.0.3/build/Microsoft.NET.Sdk.Functions.Build.targets" Line="41" Column="5" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="MozaicTransform" expanded="True">
+            <Node name="MozaicTransform" expanded="True">
+              <Node name="local.settings.json" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.MozaicTransform PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
