@@ -4,8 +4,8 @@
   "bindings": [
     {
       "type": "blobTrigger",
-      "connection": "",
-      "path": "samples-workitems/{name}",
+      "connection": "StorageConnectionAppSetting",
+      "path": "%mycontainername%/{name}",
       "name": "myBlob"
     }
   ],

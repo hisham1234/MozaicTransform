@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/Users/lulu/dev/Timeline/Mozaic-Transform/MozaicTransform.csproj": {}
+    "D:\\MozaicTransform\\Mozaic-Transform\\MozaicTransform.csproj": {}
   },
   "projects": {
-    "/Users/lulu/dev/Timeline/Mozaic-Transform/MozaicTransform.csproj": {
+    "D:\\MozaicTransform\\Mozaic-Transform\\MozaicTransform.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/lulu/dev/Timeline/Mozaic-Transform/MozaicTransform.csproj",
+        "projectUniqueName": "D:\\MozaicTransform\\Mozaic-Transform\\MozaicTransform.csproj",
         "projectName": "MozaicTransform",
-        "projectPath": "/Users/lulu/dev/Timeline/Mozaic-Transform/MozaicTransform.csproj",
-        "packagesPath": "/Users/lulu/.nuget/packages/",
-        "outputPath": "/Users/lulu/dev/Timeline/Mozaic-Transform/obj/",
+        "projectPath": "D:\\MozaicTransform\\Mozaic-Transform\\MozaicTransform.csproj",
+        "packagesPath": "C:\\Users\\n.mohamedo.n\\.nuget\\packages\\",
+        "outputPath": "D:\\MozaicTransform\\Mozaic-Transform\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "/Users/lulu/.config/NuGet/NuGet.Config"
+          "C:\\Users\\n.mohamedo.n\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -38,6 +44,18 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Azure.Storage.Blobs": {
+              "target": "Package",
+              "version": "[12.8.4, )"
+            },
+            "Microsoft.Azure.CognitiveServices.Vision.ComputerVision": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.Azure.CognitiveServices.Vision.Face": {
+              "target": "Package",
+              "version": "[2.7.0-preview.1, )"
+            },
             "Microsoft.Azure.WebJobs.Extensions.Storage": {
               "target": "Package",
               "version": "[3.0.10, )"
@@ -45,6 +63,14 @@
             "Microsoft.NET.Sdk.Functions": {
               "target": "Package",
               "version": "[3.0.3, )"
+            },
+            "Ngonzalez.ImageProcessorCore": {
+              "target": "Package",
+              "version": "[0.0.1, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[5.0.0, )"
             }
           },
           "imports": [
@@ -62,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.203/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
