@@ -1,20 +1,11 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+The Function applies blur effect to the detected faces and the text (Number Plates) in the uploaded picture in azure storage.
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+Azure Services which is used to detect the faces: Azure Face Service
+Azure Service Which is used to detect the text in image :Optical Character Recognition
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+Azure Function will be triggered when a file is uploaded to the picture container in Azure file storage container. After successful mosaic conversion the picture will be uploaded to the blurred picture container in the same azure file storage.
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+We can specify the connection string for the file storage, endpoint and the subscription keys and the names of the specified containers in the configuration file. We can update the configuration file any time to change the azure storage or the containers.
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+Limitations in this azure function
+The services which I have used to detect the face can sometimes fail to detect the faces which are tool small or faces already covered by a mask. It depends on the APIs behaviour.
