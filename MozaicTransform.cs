@@ -41,7 +41,15 @@ namespace MozaicTransform
             if (blurfFaceStream.Result != null)
             {
                 var blurTextStream = text.DetectAndBlurText(textClient, blurfFaceStream.Result,log);
-                face.UploadToBlobContainer(connectionString, name, blurTextStream.Result,blurContainer, log);
+                if(blurTextStream!=null)
+                {
+                    face.UploadToBlobContainer(connectionString, name, blurTextStream.Result, blurContainer, log);
+                }
+                else
+                {
+                    log.LogInformation("Error while Bluring text");
+                }
+                
             }
             else
             {
