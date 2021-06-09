@@ -24,37 +24,24 @@ namespace MozaicTransform
             var imageStream = new MemoryStream();
             myBlob.CopyTo(imageStream);
             myBlob.Seek(0, SeekOrigin.Begin);
+            
             try
             {
               
 
-                var detectedFaces = await client.Face.DetectWithStreamAsync(myBlob,
+                 var detectedFaces = await client.Face.DetectWithStreamAsync(myBlob,
 
                   detectionModel: DetectionModel.Detection03,
                   recognitionModel: recognitionModel);
-                     
 
-                var image = new Image(imageStream);
-               
-
-                foreach (var face in detectedFaces)
-                {
-                    var rec = new Rectangle(face.FaceRectangle.Left, face.FaceRectangle.Top, face.FaceRectangle.Width, face.FaceRectangle.Height);
-                
-                    image.BoxBlur(20, rec);
-
-
-                }
-                
-                var blurImageStream = new MemoryStream();
-               
-                
-                image.Save(blurImageStream);
-                
-                
-                blurImageStream.Seek(0, SeekOrigin.Begin);
                 log.LogInformation($"{detectedFaces.Count} face(s) detected from image.");
-                return blurImageStream;
+
+                var faceImage = new FaceBlur(imageStream);
+                faceImage.detectedFaces = detectedFaces;
+
+               
+                
+                return faceImage.Blur(); 
 
             }
             catch (Exception ex)

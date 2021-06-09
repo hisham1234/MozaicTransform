@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using System.Text.RegularExpressions;
 
 namespace MozaicTransform
 {
@@ -28,7 +29,7 @@ namespace MozaicTransform
             try
             {
 
-                //using FileStream stream = File.OpenRead(@"D:\images.jpg");
+                
                 using var streamImage = new MemoryStream();
                 blolbStream.CopyTo(streamImage);
                 blolbStream.Seek(0, SeekOrigin.Begin);
@@ -54,59 +55,22 @@ namespace MozaicTransform
                 while ((results.Status == OperationStatusCodes.Running ||
                     results.Status == OperationStatusCodes.NotStarted));
                 var cordinates = results.AnalyzeResult.ReadResults[0].Lines;
-                // stream.Seek(0, SeekOrigin.Begin);
+               
                 log.LogInformation(results.AnalyzeResult.ReadResults[0].Lines.Count+" lines found") ;
-                return ApplyBlur(streamImage, cordinates);
+                var txt = new TextBlur(streamImage);
+                txt.Cordinates = cordinates;
+                return txt.Blur();
             }
             catch (Exception ex)
             {
+                log.LogInformation(ex.Message);
                 return new MemoryStream();
-                //  throw;
-            }
-
-
-        }
-
-        public MemoryStream ApplyBlur(Stream stream, IList<Line> cordinates)
-        {
-            try
-            {
                 
-                var blurTextStream = new MemoryStream();
-                var image = new Image<Color, uint>(stream);
-
-                foreach (var line in cordinates)
-                {
-                   
-
-                    foreach (var word in line.Words)
-                    {
-                        var width = word.BoundingBox[2] - word.BoundingBox[0];
-                        var height = word.BoundingBox[7] - word.BoundingBox[1];
-                        var x = word.BoundingBox[0];//-100;
-                        var y = word.BoundingBox[3];//-100;
-
-
-                        var rec = new Rectangle(Convert.ToInt32(x), Convert.ToInt32(y), Convert.ToInt32(width), Convert.ToInt32(height));
-
-
-                        image.BoxBlur(40, rec);
-                    }
-
-
-
-
-                }
-                image.Save(blurTextStream);
-                blurTextStream.Seek(0, SeekOrigin.Begin);
-                return blurTextStream;
             }
-            catch (Exception ex)
-            {
-                return new MemoryStream();
-                // throw;
-            }
+
 
         }
+
+        
     }
 }
