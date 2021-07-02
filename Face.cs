@@ -66,12 +66,12 @@ namespace MozaicTransform
                 
                 blobClient.Upload(uploadStream, true);
                 
-                log.LogInformation("Picture :" + name + " blured uploaded successfully");
+                log.LogInformation(DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss") +" Picture :" + name + " blured uploaded successfully");
             }
             catch (Exception ex)
             {
 
-                log.LogInformation("Picture :" + name + " blured not uploaded successfully");
+                log.LogInformation(DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss") +" Picture :" + name + " blured not uploaded successfully");
                 log.LogInformation(ex.Message);
 
 
