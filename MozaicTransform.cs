@@ -18,7 +18,7 @@ namespace MozaicTransform
         [FunctionName("MozaicTransform")]
         public static void Run([BlobTrigger("%mycontainername%/{name}", Connection  = "StorageConnectionAppSetting")] Stream myBlob, string name, ILogger log)
         {
-            
+            log.LogInformation(DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss") + " |" + "Mozaic Transform Called");
 
             var face = new Face();
             var text = new Text();
