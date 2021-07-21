@@ -17,11 +17,11 @@ Run the Azure function
 The services which I have used to detect the face can sometimes fail to detect the faces which are tool small or faces already covered by a mask. It depends on the APIs behaviour.
 
 #Explanation Of the Environment Variables
-mycontainername: This container refers to the container which is used by the crisis ui to upload the pictures.
+CRISIS_CONTAINER: This container refers to the container which is used by the crisis ui to upload the pictures.
 
-BlurContainer: This container referes to the container which the blured picture should be uploaded.
+BLUR_CONTAINER: This container referes to the container which the blured picture should be uploaded.
 
-StorageConnectionAppSetting: This refers to the connection string of the storage account where the previously explained containers exist.
+STORAGE_CONNECTION_APP_SETTING: This refers to the connection string of the storage account where the previously explained containers exist.
 
 SUBSCRIPTION_KEY_FACE: Subscription Key of the Azure Cognitive-Face Service 
 

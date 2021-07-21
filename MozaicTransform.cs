@@ -16,7 +16,7 @@ namespace MozaicTransform
 
         
         [FunctionName("MozaicTransform")]
-        public static void Run([BlobTrigger("%mycontainername%/{name}", Connection  = "StorageConnectionAppSetting")] Stream myBlob, string name, ILogger log)
+        public static void Run([BlobTrigger("%CRISIS_CONTAINER%/{name}", Connection  = "STORAGE_CONNECTION_APP_SETTING")] Stream myBlob, string name, ILogger log)
         {
             log.LogInformation(DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss") + " |" + "Mozaic Transform Called");
 
@@ -29,8 +29,8 @@ namespace MozaicTransform
             var ENDPOINT_TEXT = GetEnvironmentVariable("ENDPOINT_TEXT");
             var SUBSCRIPTION_KEY_TEXT = GetEnvironmentVariable("SUBSCRIPTION_KEY_TEXT");
 
-            var connectionString = GetEnvironmentVariable("StorageConnectionAppSetting");
-            var blurContainer= GetEnvironmentVariable("BlurContainer");
+            var connectionString = GetEnvironmentVariable("STORAGE_CONNECTION_APP_SETTING");
+            var blurContainer= GetEnvironmentVariable("BLUR_CONTAINER");
 
             IFaceClient faceClient = face.Authenticate(ENDPOINT_FACE, SUBSCRIPTION_KEY_FACE);
             ComputerVisionClient textClient = text.Authenticate(SUBSCRIPTION_KEY_TEXT,ENDPOINT_TEXT);
