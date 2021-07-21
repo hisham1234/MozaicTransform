@@ -16,7 +16,7 @@ namespace MozaicTransform
 
         
         [FunctionName("MozaicTransform")]
-        public static void Run([BlobTrigger("%CRISIS_CONTAINER%/{name}", Connection  = "STORAGE_CONNECTION_APP_SETTING")] Stream myBlob, string name, ILogger log)
+        public static void Run([BlobTrigger("%CRISYS_CONTAINER%/{name}", Connection  = "STORAGE_CONNECTION_APP_SETTING")] Stream myBlob, string name, ILogger log)
         {
             log.LogInformation(DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss") + " |" + "Mozaic Transform Called");
 

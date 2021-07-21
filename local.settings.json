@@ -10,7 +10,7 @@
     "SUBSCRIPTION_KEY_TEXT": "a2b04d1ba4b147ddbabc43fe892c9e7a",
     "ENDPOINT_TEXT": "https://mozaic-cognitive-service.cognitiveservices.azure.com/",
     "BLUR_CONTAINER": "bluredpicturecontainer",
-    "CRISIS_CONTAINER": "testcontainer"
+    "CRISYS_CONTAINER": "testcontainer"
 
   }
 }
