@@ -3,14 +3,14 @@
   "Values": {
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
     "FUNCTIONS_WORKER_RUNTIME": "dotnet",
-    "StorageConnectionAppSetting": "DefaultEndpointsProtocol=https;AccountName=timelinetestfilestorage;AccountKey=9tTMpgcc96up5gNKRSF050rqROTRmIr7OJ11IKhWK4zTZgdW3VB6DfQxA03OuTS4fac47cW4cJtz/kaCw2vjMA==;EndpointSuffix=core.windows.net",
+    "STORAGE_CONNECTION_APP_SETTING": "DefaultEndpointsProtocol=https;AccountName=timelinetestfilestorage;AccountKey=9tTMpgcc96up5gNKRSF050rqROTRmIr7OJ11IKhWK4zTZgdW3VB6DfQxA03OuTS4fac47cW4cJtz/kaCw2vjMA==;EndpointSuffix=core.windows.net",
     "SUBSCRIPTION_KEY_FACE": "e7916a8861724171aa0146786c9e6b89",
     "ENDPOINT_FACE": "https://mozaic-face-service.cognitiveservices.azure.com/",
 
     "SUBSCRIPTION_KEY_TEXT": "a2b04d1ba4b147ddbabc43fe892c9e7a",
     "ENDPOINT_TEXT": "https://mozaic-cognitive-service.cognitiveservices.azure.com/",
-    "BlurContainer": "bluredpicturecontainer",
-    "mycontainername": "testcontainer"
+    "BLUR_CONTAINER": "bluredpicturecontainer",
+    "CRISYS_CONTAINER": "testcontainer"
 
   }
 }
