@@ -28,8 +28,6 @@ namespace MozaicTransform
         {
             try
             {
-
-                
                 using var streamImage = new MemoryStream();
                 blolbStream.CopyTo(streamImage);
                 blolbStream.Seek(0, SeekOrigin.Begin);
@@ -38,7 +36,7 @@ namespace MozaicTransform
                 var textHeaders = await client.ReadInStreamAsync(blolbStream);
                 // After the request, get the operation location (operation ID)
                 string operationLocation = textHeaders.OperationLocation;
-                Thread.Sleep(2000);
+                Thread.Sleep(2000); // From the documentation, this is necessary
 
                 // Retrieve the URI where the extracted text will be stored from the Operation-Location header.
                 // We only need the ID and not the full URL
@@ -47,7 +45,7 @@ namespace MozaicTransform
 
                 // Extract the text
                 ReadOperationResult results;
-                
+                log.LogInformation(" | Mozaic-Transform | Extracting the text with Cognitive-Service!");
                 do
                 {
                     results = await client.GetReadResultAsync(Guid.Parse(operationId));
@@ -57,13 +55,15 @@ namespace MozaicTransform
                 var cordinates = results.AnalyzeResult.ReadResults[0].Lines;
                
                 log.LogInformation(results.AnalyzeResult.ReadResults[0].Lines.Count+" lines found") ;
+                log.LogInformation(" | Mozaic-Transform | Cognitive-Service | " + results.AnalyzeResult.ReadResults[0].Lines.Count + " lines found!");
                 var txt = new TextBlur(streamImage);
                 txt.Cordinates = cordinates;
                 return txt.Blur();
             }
             catch (Exception ex)
             {
-                log.LogInformation(ex.Message);
+                log.LogError("| Mozaic-Transform | [Error] when detecting and blurring the text!");
+                log.LogError(ex.Message);
                 return new MemoryStream();
                 
             }
