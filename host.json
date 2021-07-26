@@ -2,6 +2,10 @@
     "version": "2.0",
     "logging": {
         "applicationInsights": {
+            "LogLevel": {
+                "Microsoft": "Information",
+                "Default": "Information"
+            },
             "samplingExcludedTypes": "Request",
             "samplingSettings": {
                 "isEnabled": true
