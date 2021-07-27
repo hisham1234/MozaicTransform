@@ -145,7 +145,7 @@ namespace MozaicTransform
             catch (Exception )
             {
                 
-              //  log.LogInformation(ex.Message);
+              // log.LogInformation(ex.Message);
                 return new MemoryStream();
                 // throw;
             }

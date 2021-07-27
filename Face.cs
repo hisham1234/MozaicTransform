@@ -20,7 +20,7 @@ namespace MozaicTransform
         }
         public async Task<Stream> DetectAndBlurFaces(IFaceClient client, string recognitionModel,Stream myBlob,string connectionString,string name,ILogger log)
         {
-            log.LogInformation("========DETECT FACES========");
+            log.LogInformation(" | Mozaic-Transform | Calling Azure cognitive service!");
             var imageStream = new MemoryStream();
             myBlob.CopyTo(imageStream);
             myBlob.Seek(0, SeekOrigin.Begin);
@@ -34,7 +34,7 @@ namespace MozaicTransform
                   detectionModel: DetectionModel.Detection03,
                   recognitionModel: recognitionModel);
 
-                log.LogInformation($"{detectedFaces.Count} face(s) detected from image.");
+                log.LogInformation($" | Mozaic-Transform | Cognitive-Service | {detectedFaces.Count} face(s) detected from !");
 
                 var faceImage = new FaceBlur(imageStream);
                 faceImage.detectedFaces = detectedFaces;
@@ -46,8 +46,8 @@ namespace MozaicTransform
             }
             catch (Exception ex)
             {
-                log.LogInformation("Error Occuured while detecting face");
-                log.LogInformation(ex.Message);
+                log.LogError("| Mozaic-Transform | Cognitive-Service | [Error] Occuured while detecting face!");
+                log.LogError(ex.Message);
                 return new MemoryStream();
             }
 
@@ -66,13 +66,13 @@ namespace MozaicTransform
                 
                 blobClient.Upload(uploadStream, true);
                 
-                log.LogInformation(DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss") +" Picture :" + name + " blured uploaded successfully");
+                log.LogInformation(" | Mozaic-Transform | Picture :" + name + " blured uploaded successfully!");
             }
             catch (Exception ex)
             {
 
-                log.LogInformation(DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss") +" Picture :" + name + " blured not uploaded successfully");
-                log.LogInformation(ex.Message);
+                log.LogError( "| Mozaic-Transform |  [Error] Picture :" + name + " blured not uploaded successfully!");
+                log.LogError(ex.Message);
 
 
             }

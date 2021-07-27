@@ -18,7 +18,7 @@ namespace MozaicTransform
         [FunctionName("MozaicTransform")]
         public static void Run([BlobTrigger("%CRISYS_CONTAINER%/{name}", Connection  = "STORAGE_CONNECTION_APP_SETTING")] Stream myBlob, string name, ILogger log)
         {
-            log.LogInformation(DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss") + " |" + "Mozaic Transform Called");
+            log.LogInformation(" | Mozaic-Transform | \"MozaicTransform\" called!");
 
             var face = new Face();
             var text = new Text();
@@ -47,13 +47,13 @@ namespace MozaicTransform
                 }
                 else
                 {
-                    log.LogInformation("Error while Bluring text");
+                    log.LogInformation(" | Mozaic-Transform | [Error] while Bluring text");
                 }
                 
             }
             else
             {
-                log.LogInformation("Detecting text did not processed");
+                log.LogError("| Mozaic-Transform | Detecting text did not processed");
             }
                 
             

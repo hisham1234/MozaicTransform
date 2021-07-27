@@ -30,3 +30,7 @@ ENDPOINT_FACE: Endpoint Url of the Azure Cognitive-Face Service
 SUBSCRIPTION_KEY_TEXT: Subscription Key of the Azure Cognitive Service Used to Detect Text (Computer Vision API)
 
 ENDPOINT_TEXT: End Point Url of the Azure Cognitive Service Used to Detect Text(Computer Vision API)
+
+APPINSIGHTS_INSTRUMENTATIONKEY: Refer to the instrumentation key of the appinsights
+
+APPLICATIONINSIGHTS_CONNECTION_STRING: Refer to the app insights connection string
